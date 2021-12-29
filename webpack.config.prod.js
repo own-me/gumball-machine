@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
+// const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     mode: 'production',
@@ -44,10 +44,10 @@ module.exports = {
             inject: true,
             template: path.join(__dirname, 'index.html'),
         }),
-        new CopyPlugin({
-            patterns: [
-                { from: "media/favicons/", to: "media/favicons/" },
-            ],
-        }),
+        // new CopyPlugin({
+        //     patterns: [
+        //         { from: "media/favicons/", to: "media/favicons/" },
+        //     ],
+        // }),
     ]
 };

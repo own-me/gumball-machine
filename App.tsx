@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from 'react-dom';
+import Canvas from "./Canvas";
 
 function App() {
     return (
         <>
-            <h1>Hello World</h1>
+            <Canvas />
         </>
     );
 };
