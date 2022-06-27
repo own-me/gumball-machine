@@ -13,6 +13,7 @@ module.exports = {
     module: {
         rules: [
             {
+                
                 test: /\.(ts|js)x?$/,
                 exclude: /node_modules/,
                 use: {
@@ -27,6 +28,19 @@ module.exports = {
                 },
             },
             {
+                test: /\.(glb|gltf)$/,
+                use:
+                [
+                    {
+                        loader: 'file-loader',
+                        options:
+                        {
+                            outputPath: 'assets/models/'
+                        }
+                    }
+                ]
+            },
+            {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
@@ -34,6 +48,15 @@ module.exports = {
                 test: /\.(png|jpe?g|gif|woff(2)?|svg)$/i,
                 type: 'asset/resource'
             },
+            {
+                test: /\.(png|jpg|gif|env|glb|stl)$/i,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8192,
+                    },
+                }, ],
+            }
         ]
     },
     resolve: {

@@ -34,6 +34,19 @@ module.exports = {
                 },
             },
             {
+                test: /\.(glb|gltf)$/,
+                use:
+                    [
+                        {
+                            loader: 'file-loader',
+                            options:
+                            {
+                                outputPath: 'assets/models/'
+                            }
+                        }
+                    ]
+            },
+            {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
@@ -41,6 +54,13 @@ module.exports = {
                 test: /\.(png|jpe?g|gif|woff(2)?|svg)$/i,
                 type: 'asset/resource'
             },
+            {
+                test: /\.(gltf)$/,
+                use: [
+                    {
+                        loader: "gltf-webpack-loader"
+                    }]
+            }
         ]
     },
     resolve: {
