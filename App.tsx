@@ -1,5 +1,5 @@
-import React from "react";
-import ReactDOM from 'react-dom';
+import React, { Suspense } from "react";
+import { createRoot } from 'react-dom/client';
 import styled from "styled-components";
 import Canvas from "./Canvas";
 import Ui from "./Ui";
@@ -12,11 +12,17 @@ const AppContainer = styled.div`
 
 function App() {
     return (
+        
         <AppContainer>
+            <Suspense fallback={<div>Loading...</div>}>
             <Canvas />
             <Ui />
+            </Suspense>
         </AppContainer>
     );
 };
 
-ReactDOM.render(<App />, document.getElementById('react-container'));
+const element = document.getElementById('react-container');
+if (element) {
+    createRoot(element).render(<App />)
+}
