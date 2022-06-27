@@ -1,3 +1,4 @@
+import React from 'react'
 import { useLoader } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
@@ -9,7 +10,7 @@ export default function Blender() {
     return (
         <primitive
             object={gltf.scene}
-            position={[0, 0, 0]}
+            position={[0, -30, -100]}
         />
     )
 }
